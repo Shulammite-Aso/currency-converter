@@ -2,7 +2,6 @@ const input = document.getElementById('lbsInput');
 const output = document.getElementById('output');
 
 output.style.visibility = 'hidden';
-
 input.addEventListener('input', (e) => {
   let lbs = e.target.value;
 
@@ -19,12 +18,3 @@ input.addEventListener('input', (e) => {
 
   e.preventDefault();
 });
-
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then( () => {
-      console.log('Service Worker Registered')
-    })
-  })
-}
