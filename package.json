@@ -4,7 +4,7 @@
   "description": "A simple example of PWA",
   "main": "index.js",
   "scripts": {
-    "start":"http-server -c-1 -p 8081",
+    "start": "http-server -c-1 -p 8081",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
