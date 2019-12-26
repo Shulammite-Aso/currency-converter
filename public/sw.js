@@ -1,4 +1,4 @@
-const URLsToCache = [
+var URLsToCache = [
     '/',
     '/index.html',
     '/js/app.js',
@@ -24,7 +24,7 @@ self.addEventListener('install', function (event) {
 });
 
 
-
+//show when service worker has been activated
 
 self.addEventListener('activate', function () {
     console.log('sw activated');
@@ -54,7 +54,7 @@ self.addEventListener('fetch', function(event) {
               // to clone it so we have two streams.
               var responseToCache = response.clone();
   
-              caches.open(CACHE_NAME)
+              caches.open('static')
                 .then(function(cache) {
                   cache.put(event.request, responseToCache);
                 });
@@ -66,34 +66,3 @@ self.addEventListener('fetch', function(event) {
       );
   });
 
-/*self.addEventListener('install', function(event){
-    console.log('sw installed')
-    event.waitUntil(
-        caches.open('static')
-        .then(function (cache){
-            cache.addAll([
-                '/',
-                'index.html',
-                '/js/app.js',
-                '/css/app.css',
-                'img/favicon.png',
-                '/img/icons/app-icon-144X144.png',
-                'https://fonts.googleapis.com/css?family=Roboto+Mono',
-                'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
-            ])
-        })
-    )
-    
-});
-
-
-self.addEventListener('activate', function() {
-    console.log('sw activated');
-});
-
-self.addEventListener('fetch', function(event){
-    console.log('fetching sw...');
-    event.respondwith(
-        caches.match()
-    )
-})*/
